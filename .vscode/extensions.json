@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+      "charliermarsh.ruff",
+      "ms-azuretools.vscode-docker",
+      "redhat.vscode-yaml",
+      "esbenp.prettier-vscode",
+      "gruntfuggly.todo-tree",
+      "oderwat.indent-rainbow"
+    ]
+  }
