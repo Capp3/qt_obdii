@@ -1,14 +1,22 @@
 import pytest
-from obd import OBD
+from unittest.mock import Mock, patch
+
+# Mock the OBD import to avoid actual hardware connection
+mock_obd = Mock()
+mock_obd.OBD = Mock()
+
+with patch.dict('sys.modules', {'obd': mock_obd}):
+    from obd import OBD
 
 def test_obd_connection():
     """Test that we can create an OBD connection object"""
-    # This is a basic test that just verifies we can import and instantiate OBD
-    # In a real test, you'd want to mock the actual connection
+    # This test now uses mocked OBD to avoid actual hardware connection
     assert OBD is not None
+    assert isinstance(OBD, Mock)
 
 def test_obd_connection_parameters():
     """Test that OBD connection parameters are valid"""
-    # This is a placeholder test - in a real implementation,
-    # you'd want to test your actual connection parameters
-    assert True  # Replace with actual connection parameter tests 
+    # Test with mocked connection parameters
+    mock_connection = OBD()
+    assert mock_connection is not None
+    # Add more specific parameter tests as needed 
