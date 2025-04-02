@@ -31,24 +31,29 @@ def setup_logging():
     
     return logging.getLogger(__name__)
 
-async def main():
+def main():
     """Main application entry point."""
     # Setup logging
     logger = setup_logging()
     logger.info("Starting OBD Diagnostic Tool")
     
     # Create Qt application
-    app = QApplication(sys.argv)
+    app = QApplication.instance() or QApplication(sys.argv)
     
     # Create and show main window
     window = MainWindow()
     window.show()
     
-    # Run the application with qasync
-    await qasync.QEventLoop(app).run_forever()
+    # Create event loop
+    loop = qasync.QEventLoop(app)
+    asyncio.set_event_loop(loop)
+    
+    # Run the application
+    with loop:
+        loop.run_forever()
 
 if __name__ == "__main__":
     try:
-        qasync.run(main())
+        main()
     except KeyboardInterrupt:
         pass
