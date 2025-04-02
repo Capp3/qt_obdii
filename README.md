@@ -1,7 +1,6 @@
 # Qt OBDII Interface
 
 [![Tests](https://github.com/capp3/qt_obdii/actions/workflows/tests.yml/badge.svg)](https://github.com/capp3/qt_obdii/actions/workflows/tests.yml)
-[![codecov](https://codecov.io/gh/capp3/qt_obdii/branch/main/graph/badge.svg)](https://codecov.io/gh/capp3/qt_obdii)
 
 A modern OBD2 (On-Board Diagnostics) interface application built with Qt and Python, providing a user-friendly way to interact with your vehicle's diagnostic system. This project is based on the [python-OBD](https://github.com/brendan-w/python-OBD) package and enhanced with a Qt-based graphical user interface.
 
